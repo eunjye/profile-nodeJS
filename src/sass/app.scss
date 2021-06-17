@@ -4,10 +4,10 @@
 @import 'partials/variable';
 @import 'partials/mixin';
 
-/* basic */
+// /* basic */
 @import './base.scss';
 @import './font.scss';
 
-/* style */
+// /* style */
 @import './component.scss';
 @import './component_resp.scss';
