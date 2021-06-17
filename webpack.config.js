@@ -1,5 +1,6 @@
 const path = require('path'); // 운영체제별로 경로 구분자가 달라 생기는 이슈를 해결하기 위해 (ex: windows:'\', POSIX:'/')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   //entry file
@@ -11,7 +12,8 @@ module.exports = {
   },
   target: ['web', 'es5'], // es5 지정 없으면 es6 문법으로 export됨
   plugins: [
-    new MiniCssExtractPlugin({ filename: 'css/style.css'})
+    new MiniCssExtractPlugin({ filename: 'css/style.css'}),
+    new CleanWebpackPlugin(['dist']) // 실제 사용된 파일만 추적하여 dist/ 에 남기는 plugin
   ],
   module: {
     rules: [
