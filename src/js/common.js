@@ -104,7 +104,7 @@
 		navLoad: function(){
 			(function () {
 				return new Promise(function(resolve, reject) {
-					$.get('./include/header.html', function(response) {
+					$.get('./html/inc/header.html', function(response) {
 						if (response) {
 							resolve(response);
 						}
@@ -125,7 +125,7 @@
 		footerLoad: function(){
 			(function () {
 				return new Promise(function(resolve, reject) {
-					$.get('./include/footer.html', function(response) {
+					$.get('./html/inc/footer.html', function(response) {
 						if (response) {
 							resolve(response);
 						}
