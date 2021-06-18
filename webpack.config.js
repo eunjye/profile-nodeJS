@@ -1,6 +1,5 @@
 const path = require('path'); // 운영체제별로 경로 구분자가 달라 생기는 이슈를 해결하기 위해 (ex: windows:'\', POSIX:'/')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-we')
 // const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
