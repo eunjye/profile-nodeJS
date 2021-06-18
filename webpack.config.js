@@ -1,26 +1,27 @@
 const path = require('path'); // 운영체제별로 경로 구분자가 달라 생기는 이슈를 해결하기 위해 (ex: windows:'\', POSIX:'/')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-we')
+// const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   //entry file
   entry: ['@babel/polyfill', './src/js/common.js', './src/sass/app.scss'],
   // 컴파일 + 번들링된 js 파일이 지정될 경로와 이름 지정
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, './public/dist'),
     filename: 'js/bundle.js'
   },
   target: ['web', 'es5'], // es5 지정 없으면 es6 문법으로 export됨
   plugins: [
     new MiniCssExtractPlugin({ filename: 'css/style.css'}),
-    new CleanWebpackPlugin(['dist']) // 실제 사용된 파일만 추적하여 dist/ 에 남기는 plugin
+    // new CleanWebpackPlugin(['dist']) // 실제 사용된 파일만 추적하여 dist/ 에 남기는 plugin
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
         include: [
-          path.resolve(__dirname, 'src/js')
+          path.resolve(__dirname, './src/js')
         ],
         use: {
           loader: 'babel-loader',
@@ -39,6 +40,15 @@ module.exports = {
           'sass-loader' // compiles SASS to CSS, using Node SASS by default
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(html)$/,
+        use: {
+          loader: 'html-loader',
+          // options: {
+          //   attrs: [':data-src']
+          // }
+        }
       },
       {
         test: /\.(jpg|jpeg|gif|png|svg|ico)?$/,
