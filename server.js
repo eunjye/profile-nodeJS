@@ -13,6 +13,6 @@ app.get('/', (req, res) => {
   res.sendFile(htmlPath('index'));
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT, () => {
   console.log('Express App on port 8080!');
 })
